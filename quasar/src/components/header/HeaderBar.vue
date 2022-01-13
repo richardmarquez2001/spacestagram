@@ -1,15 +1,16 @@
 <template>
-  <div>Auth Header</div>
+  <div>
+    <q-header color="secondary">
+      <q-btn>Spacestagram</q-btn>
+    </q-header>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'HeaderAuth',
-  setup() {
-    return {};
-  },
+  name: 'HeaderBar',
 });
 </script>
 

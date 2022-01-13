@@ -1,6 +1,6 @@
 <template>
   <q-layout>
-    <header-default />
+    <header-bar />
       <router-view />
     <Footer />
   </q-layout>
@@ -8,12 +8,12 @@
 
 <script lang="ts">
 
+import HeaderBar from 'src/components/header/HeaderBar.vue'
 import { defineComponent } from 'vue'
 import Footer from '../components/footer/Footer.vue'
-import HeaderDefault from '../components/header/HeaderDefault.vue'
 
 export default defineComponent({
-  components: { HeaderDefault, Footer },
+  components: { Footer, HeaderBar },
   name:'MainLayout',
 
 })

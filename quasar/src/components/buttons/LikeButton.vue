@@ -1,5 +1,6 @@
 <template>
   <q-btn
+    v-if="!!date"
     class="q-mr-md"
     icon="favorite_border"
     @click="setLike"
@@ -9,17 +10,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watchEffect } from 'vue';
 
 export default defineComponent({
   name: 'LikeButton',
-  setup() {
-    const likeColor = ref('');
+  props: { date: { type: String, required: true } },
+  setup(props) {
+    const likeColor = ref('white');
 
     const setLike = () => {
-      const newColor = likeColor.value == '' ? 'red' : '';
+      if (Boolean(localStorage.getItem(props.date))) {
+        // if true
+        localStorage.removeItem(props.date);
+      } else {
+        // if false
+        localStorage.setItem(props.date, 'true');
+      }
+
+      const newColor = likeColor.value === 'white' ? 'red' : 'white';
       likeColor.value = newColor;
     };
+
+    watchEffect(() => {
+      likeColor.value = Boolean(localStorage.getItem(props.date))
+        ? 'red'
+        : 'white';
+    });
+
     return { setLike, likeColor };
   },
 });

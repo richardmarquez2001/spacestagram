@@ -2,7 +2,16 @@
   <div>
     <div class="row">
       <div class="col-6">
-        <q-img :src="data.url" />
+        <q-img
+          v-if="data.media_type === 'image'"
+          :src="data.url"
+          spinner-color="black"
+        />
+        <q-video
+          v-else-if="data.media_type === 'video'"
+          :src="data.url"
+          spinner-color="black"
+        />
       </div>
       <div class="col-6">
         <div>{{ data.title }}</div>

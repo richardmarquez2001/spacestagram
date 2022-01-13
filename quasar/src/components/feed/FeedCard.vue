@@ -1,11 +1,22 @@
 <template>
-  <q-card v-if="!!data" class="feed-card col-4">
-    <q-img width="300px" :src="data.url" spinner-color="black" />
+  <q-card v-if="!!data" class="feed-card col-4 q-my-xl">
+    <q-img
+      v-if="data.media_type === 'image'"
+      width="300px"
+      :src="data.url"
+      spinner-color="black"
+    />
+    <q-video
+      v-else-if="data.media_type === 'video'"
+      width="300px"
+      :src="data.url"
+      spinner-color="black"
+    />
     <div>{{ data.title }}</div>
     <div>{{ data.date }}</div>
     <div>{{ data.explanation }}</div>
     <div>
-      <like-button />
+      <like-button :date="data.date" />
       <view-button :date="data.date" />
       <share-button :date="data.date" />
     </div>
