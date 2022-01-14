@@ -1,20 +1,18 @@
 <template>
-  <q-layout>
+  <q-layout class="bg-primary">
     <header-bar />
+    <q-page-container>
       <router-view />
-    <Footer />
+    </q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
-
-import HeaderBar from 'src/components/header/HeaderBar.vue'
-import { defineComponent } from 'vue'
-import Footer from '../components/footer/Footer.vue'
+import HeaderBar from 'src/components/header/HeaderBar.vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  components: { Footer, HeaderBar },
-  name:'MainLayout',
-
-})
+  components: { HeaderBar },
+  name: 'MainLayout',
+});
 </script>

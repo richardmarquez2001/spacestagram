@@ -1,9 +1,16 @@
 <template>
-  <div>
-    <q-header color="secondary">
-      <q-btn>Spacestagram</q-btn>
+  <nav>
+    <q-header class="nav-color">
+      <q-btn no-caps flat to="/" class="q-my-sm q-ml-md">spacestagram</q-btn>
+      <q-btn
+        no-caps
+        flat
+        href="https://github.com/richardmarquez2001/spacestagram"
+        class="q-my-sm"
+        >view on github</q-btn
+      >
     </q-header>
-  </div>
+  </nav>
 </template>
 
 <script lang="ts">
@@ -14,4 +21,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.nav-color {
+  background-color: $secondary;
+}
+</style>

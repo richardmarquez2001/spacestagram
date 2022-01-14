@@ -1,26 +1,41 @@
 <template>
-  <q-card v-if="!!nasaData[0]">
-    <q-img
-      v-if="nasaData[0].media_type === 'image'"
-      width="300px"
-      :src="nasaData[0].url"
-      spinner-color="black"
-    />
-    <q-video
-      v-else-if="nasaData[0].media_type === 'video'"
-      width="300px"
-      :src="nasaData[0].url"
-      spinner-color="black"
-    />
-    <div>
-      <div>{{ nasaData[0].title }}</div>
-      <div>{{ nasaData[0].date }}</div>
-      <div>{{ nasaData[0].explanation }}</div>
-    </div>
-    <like-button :date="nasaData[0].date" />
-    <share-button :date="nasaData[0].date" />
-    <view-button :date="nasaData[0].date" />
-  </q-card>
+  <main>
+    <q-card class="bg-primary hero row q-mt-md q-mb-xl" v-if="!!nasaData[0]">
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <q-img
+          v-if="nasaData[0].media_type === 'image'"
+          :src="nasaData[0].url"
+          class="hero-image"
+          spinner-color="black"
+        />
+        <q-video
+          v-else-if="nasaData[0].media_type === 'video'"
+          width="300px"
+          :src="nasaData[0].url"
+          spinner-color="black"
+        />
+      </div>
+
+      <div class="col-md-6 col-sm-12 col-xs-12 q-pa-md">
+        <div>
+          <h3 class="row text-size-sm text-gray">
+            <span class="col justify-start">Today's Image</span>
+            <span class="col row justify-end">
+              {{ nasaData[0].date }}
+            </span>
+          </h3>
+          <h2 class="text-size-title">{{ nasaData[0].title }}</h2>
+          <article>{{ nasaData[0].explanation }}</article>
+        </div>
+
+        <div class="row q-pt-md justify-end">
+          <like-button :date="nasaData[0].date" />
+          <view-button :date="nasaData[0].date" />
+          <share-button :date="nasaData[0].date" />
+        </div>
+      </div>
+    </q-card>
+  </main>
 </template>
 
 <script lang="ts">
@@ -77,4 +92,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.hero {
+  width: 100%;
+}
+.hero-image {
+  width: 100%;
+}
+</style>

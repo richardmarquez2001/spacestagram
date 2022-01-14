@@ -1,6 +1,13 @@
 <template>
-  <q-btn class="q-mr-md" icon="ios_share" @click="copyURL">
-    <q-popup-proxy> Copied! </q-popup-proxy>
+  <q-btn
+    rounded
+    class="button q-mr-md q-mb-sm"
+    icon="ios_share"
+    @click="copyURL"
+  >
+    <q-popup-proxy>
+      <div class="share-popup q-pa-sm bg-primary text-secondary">copied!</div>
+    </q-popup-proxy>
   </q-btn>
 </template>
 
@@ -18,7 +25,7 @@ export default defineComponent({
   setup(props) {
     const copyURL = async () => {
       await navigator.clipboard.writeText(
-        `localhost:8080/showcase/${props.date}`
+        `${window.location.toString()}showcase/${props.date}`
       );
     };
 
@@ -27,4 +34,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.share-popup {
+  font-size: 12px;
+}
+</style>

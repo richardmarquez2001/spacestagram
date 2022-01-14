@@ -1,11 +1,12 @@
 <template>
   <q-btn
     v-if="!!date"
-    class="q-mr-md"
+    rounded
+    class="button q-mr-md q-mb-sm"
     icon="favorite_border"
     @click="setLike"
     v-bind:color="likeColor"
-    text-color="black"
+    v-bind:text-color="textColor"
   />
 </template>
 
@@ -16,7 +17,8 @@ export default defineComponent({
   name: 'LikeButton',
   props: { date: { type: String, required: true } },
   setup(props) {
-    const likeColor = ref('white');
+    const likeColor = ref('primary');
+    const textColor = ref('secondary');
 
     const setLike = () => {
       if (Boolean(localStorage.getItem(props.date))) {
@@ -27,17 +29,18 @@ export default defineComponent({
         localStorage.setItem(props.date, 'true');
       }
 
-      const newColor = likeColor.value === 'white' ? 'red' : 'white';
-      likeColor.value = newColor;
+      likeColor.value = likeColor.value === 'primary' ? 'accent' : 'primary';
+      textColor.value =
+        textColor.value === 'secondary' ? 'primary' : 'secondary';
     };
 
     watchEffect(() => {
       likeColor.value = Boolean(localStorage.getItem(props.date))
-        ? 'red'
-        : 'white';
+        ? 'accent'
+        : 'primary';
     });
 
-    return { setLike, likeColor };
+    return { setLike, likeColor, textColor };
   },
 });
 </script>

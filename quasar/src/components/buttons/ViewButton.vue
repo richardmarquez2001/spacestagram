@@ -1,5 +1,11 @@
 <template>
-  <q-btn label="View" @click="routeToPage" />
+  <q-btn
+    rounded
+    no-caps
+    class="button q-mr-md q-mb-sm"
+    label="view"
+    @click="routeToPage"
+  />
 </template>
 
 <script lang="ts">

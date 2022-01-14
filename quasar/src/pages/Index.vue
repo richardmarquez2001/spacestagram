@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <q-page class="bg-primary container">
     <feed-hero />
     <feed-list />
-  </div>
+  </q-page>
 </template>
 
 <script lang="ts">
@@ -14,3 +14,10 @@ export default defineComponent({
   name: 'PageIndex',
 });
 </script>
+
+<style lang="scss" scoped>
+.container {
+  width: 70vw;
+  margin: 0 auto;
+}
+</style>

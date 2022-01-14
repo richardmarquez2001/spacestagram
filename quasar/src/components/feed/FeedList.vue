@@ -4,11 +4,22 @@
       <div
         v-for="(item, index) in nasaData"
         :key="index"
-        class="col-md-3 col-sm-2 q-mb-xl"
+        class="col-lg-4 col-md-4 col-sm-12 q-mb-xl"
       >
-        <feed-card :data="item" />
+        <feed-card
+          :date="item.date"
+          :explanation="item.explanation"
+          :media_type="item.media_type"
+          :title="item.title"
+          :url="item.url"
+        />
       </div>
     </div>
+    <template v-slot:loading>
+      <div class="row justify-center q-my-md">
+        <q-spinner-dots color="primary" size="40px" />
+      </div>
+    </template>
   </q-infinite-scroll>
 </template>
 
@@ -50,5 +61,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped></style>
