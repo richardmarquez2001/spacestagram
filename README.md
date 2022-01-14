@@ -9,7 +9,7 @@ This project uses Vue.js and Quasar with the NASA API to display the Astronomy P
 ## Here are some images:
 
 ### Header Image
-![today's image (header image)](https://user-images.githubusercontent.com/56178203/149568626-8cdea8d7-dfdc-4200-a92e-011cb7abbb28.png))
+![today's image (header image)](https://user-images.githubusercontent.com/56178203/149568626-8cdea8d7-dfdc-4200-a92e-011cb7abbb28.png)
 
 ### Image Cards
 ![card with image, explanation, share button and like button](https://user-images.githubusercontent.com/56178203/149568714-bde02644-3d83-4be4-9c2d-6bac1b3ab761.png)
