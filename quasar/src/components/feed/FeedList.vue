@@ -52,7 +52,7 @@ export default defineComponent({
           nasaData.value.push(response.data);
         })
         .catch((err) => {
-          console.log(`[FeedsList.vue] ${(err as Error).message}`); // TODO: Make error explicit to user via popup/red text
+          console.log(`[FeedsList.vue] ${(err as Error).message}`);
         });
       done();
     };
